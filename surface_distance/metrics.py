@@ -234,7 +234,7 @@ def compute_robust_hausdorff(surface_distances, percent):
     perc_distance_gt_to_pred = distances_gt_to_pred[
         min(idx, len(distances_gt_to_pred)-1)]
   else:
-    perc_distance_gt_to_pred = np.Inf
+    perc_distance_gt_to_pred = 0.0  # np.Inf
 
   if len(distances_pred_to_gt) > 0:  # pylint: disable=g-explicit-length-test
     surfel_areas_cum_pred = (np.cumsum(surfel_areas_pred) /
@@ -243,7 +243,7 @@ def compute_robust_hausdorff(surface_distances, percent):
     perc_distance_pred_to_gt = distances_pred_to_gt[
         min(idx, len(distances_pred_to_gt)-1)]
   else:
-    perc_distance_pred_to_gt = np.Inf
+    perc_distance_pred_to_gt = 0.0  # np.Inf
 
   return max(perc_distance_gt_to_pred, perc_distance_pred_to_gt)
 
